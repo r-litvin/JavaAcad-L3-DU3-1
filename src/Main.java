@@ -32,6 +32,8 @@ public class Main {
     //  tested in test02
     //task14: Do třídy Booking přidej metodu getBookingLength
     //  tested in test02, used in Booking.getPrice()
+    //task15: Přidej do třídy Booking metodu getPrice, která spočítá celkovou cenu objednávky.
+    //  used in printBooking, needed for tasks 11 & 12
 
     public static void main(String[] args) {
         BookingManager myBookings = new BookingManager();
@@ -111,6 +113,7 @@ public class Main {
         dateTo = booking.getStayEnd().format(DateTimeFormatter.ofPattern("d.M.yyyy"));
         guest0 = booking.getGuests().get(0);
 
+        //task15: uses Booking.getPrice()
         outputString += dateFrom + " až " + dateTo +": "
                 + guest0.getName() + " "
                 + guest0.getSurname() + " ("
