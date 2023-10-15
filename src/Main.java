@@ -106,10 +106,18 @@ public class Main {
                 LocalDate.of(2023, 7, 18),
                 LocalDate.of(2023, 7, 21),
                 VacationType.LEISURE);
-        bookings.addBooking(room3, guestList(guest3),
+
+        //let's test adding a Booking instance
+        Booking booking3 = new Booking(room3, guestList(guest3),
                 LocalDate.of(2023, 8, 1),
                 LocalDate.of(2023, 8, 31),
                 VacationType.BUSINESS);
+        bookings.addBooking(booking3);
+        // alternate version
+//        bookings.addBooking(room3, guestList(guest3),
+//                LocalDate.of(2023, 8, 1),
+//                LocalDate.of(2023, 8, 31),
+//                VacationType.BUSINESS);
 
         int day0 = 1;
         for (int i=0; i<10; i++){
