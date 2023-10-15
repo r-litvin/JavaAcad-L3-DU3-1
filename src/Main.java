@@ -31,7 +31,7 @@ public class Main {
     //task13: Připrav v hlavní třídě metodu printGuestStatistics, která vypíše...
     //  tested in test02
     //task14: Do třídy Booking přidej metodu getBookingLength
-    //  tested in
+    //  tested in test02, used in Booking.getPrice()
 
     public static void main(String[] args) {
         BookingManager myBookings = new BookingManager();
@@ -60,10 +60,6 @@ public class Main {
         //task03: getBookings() method in BookingManager
         //task12
         printVacationBookings(bookings.getBookings(), 8);
-
-
-
-
         //task05: getNumberOfWorkingBookings()
         System.out.println("Number of business trip bookings is "+bookings.getNumberOfWorkingBookings());
         //task06: getAverageGuests in BookingManager
@@ -72,6 +68,9 @@ public class Main {
         printAllBookings(bookings);
         //task13: Guest Statistics
         printGuestStatistics(bookings.getBookings());
+        //task14: getBookingLength method in Booking
+        int bookingLength0 = bookings.getBooking(0).getBookingLength();
+        if (verbose) System.out.println("Booking #0 has length "+bookingLength0);
 
         //task04: clearBookings();
         bookings.clearBookings();
