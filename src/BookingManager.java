@@ -41,6 +41,10 @@ public class BookingManager {
         this.listOfBookings.clear();
     }
 
+    public int getNumberOfBookings(){
+        return listOfBookings.size();
+    }
+
     public int getNumberOfWorkingBookings(){
         int workingBookingCount=0;
         for (Booking booking : this.listOfBookings){
@@ -56,7 +60,7 @@ public class BookingManager {
         for (Booking booking : this.listOfBookings){
             sumGuests += (double) booking.getNumberOfGuests();
         }
-        return sumGuests/this.listOfBookings.size();
+        return sumGuests/this.getNumberOfBookings();
     }
 
 
