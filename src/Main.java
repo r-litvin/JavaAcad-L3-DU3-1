@@ -1,24 +1,55 @@
 import java.math.BigDecimal;
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class Main {
+    //tasks:
+    //task01: addBooking in BookingManager
+    //  tested in fillBookings01
+    //task02: gedBooking(index) in BookingManager
+    //  tested in test02
+    //task03: getBookings() method in BookingManager
+    //  tested in test02
+    //task04: clearBookings() method in BookingManager
+    //  tested in test02
+
+
     public static void main(String[] args) {
         BookingManager myBookings = new BookingManager();
-        fillBookings01(myBookings);
-        System.out.println("Avg number of guests is "+String.format("%.2f", myBookings.getAverageGuests()));
-        System.out.println("Number of business trip bookings is "+myBookings.getNumberOfWorkingBookings());
-        printAllBookings(myBookings);
-        printVacationBookings(myBookings.getBookings(), 8);
-        printGuestStatistics(myBookings.getBookings());
+        test02(myBookings, true);
+
+
 
         System.out.println("avg guests: "+myBookings.getAverageGuests());
         //test01();
-        myBookings.clearBookings();
+
         System.out.println("End OK.");
+    }
+
+    public static void test02(BookingManager bookings, boolean verbose){
+        if(verbose) System.out.println("\nTest of BookingManager class usage:");
+        fillBookings01(bookings);
+        if(verbose) System.out.println("Test BookingManager class filled successfully.");
+        if(verbose) System.out.println("Total number of bookings is "+bookings.getNumberOfBookings());
+        if(bookings.getNumberOfBookings()>2){
+            Booking dummyBooking = bookings.getBooking(2);
+            if (verbose) System.out.println("getBooking(2) => "+dummyBooking);
+        }
+
+        printAllBookings(bookings);
+        //task03: getBookings() method in BookingManager
+        printVacationBookings(bookings.getBookings(), 8);
+        printGuestStatistics(bookings.getBookings());
+
+        //task04: clearBookings();
+        bookings.clearBookings();
+
+        System.out.println("Avg number of guests is "+String.format("%.2f", bookings.getAverageGuests()));
+        System.out.println("Number of business trip bookings is "+bookings.getNumberOfWorkingBookings());
+
+
+
     }
 
     private static void printAllBookings(BookingManager myBookings) {
@@ -112,6 +143,7 @@ public class Main {
                 LocalDate.of(2023, 8, 1),
                 LocalDate.of(2023, 8, 31),
                 VacationType.BUSINESS);
+        // task01: addBooking
         bookings.addBooking(booking3);
         // alternate version
 //        bookings.addBooking(room3, guestList(guest3),
