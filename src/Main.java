@@ -13,16 +13,21 @@ public class Main {
     //  tested in test02
     //task04: clearBookings() method in BookingManager
     //  tested in test02
+    //task05: getNumberOfWorkingBookings in BookingManager
+    //  tested in test02
+    //task06: getAverageGuests in BookingManager
+    //  tested in test02
 
 
     public static void main(String[] args) {
         BookingManager myBookings = new BookingManager();
+        //test01();
         test02(myBookings, true);
 
 
 
         System.out.println("avg guests: "+myBookings.getAverageGuests());
-        //test01();
+
 
         System.out.println("End OK.");
     }
@@ -42,14 +47,15 @@ public class Main {
         printVacationBookings(bookings.getBookings(), 8);
         printGuestStatistics(bookings.getBookings());
 
+
+
+        //task05: getNumberOfWorkingBookings()
+        System.out.println("Number of business trip bookings is "+bookings.getNumberOfWorkingBookings());
+        //task06: getAverageGuests in BookingManager
+        System.out.println("Avg number of guests is "+String.format("%.2f", bookings.getAverageGuests()));
+
         //task04: clearBookings();
         bookings.clearBookings();
-
-        System.out.println("Avg number of guests is "+String.format("%.2f", bookings.getAverageGuests()));
-        System.out.println("Number of business trip bookings is "+bookings.getNumberOfWorkingBookings());
-
-
-
     }
 
     private static void printAllBookings(BookingManager myBookings) {
