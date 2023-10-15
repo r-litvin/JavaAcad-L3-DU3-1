@@ -110,8 +110,7 @@ public class Main {
     private static void printBooking(Booking booking){
         String outputString = "", dateFrom, dateTo;
         Guest guest0;
-        BigDecimal numberOfNights;
-        Map<Boolean, String> view = new HashMap<Boolean, String>();
+        Map<Boolean, String> view = new HashMap<>();
         view.put(true, "ano");
         view.put(false, "ne");
         dateFrom = booking.getStayStart().format(DateTimeFormatter.ofPattern("d.M.yyyy"));
