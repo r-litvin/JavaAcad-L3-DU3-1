@@ -28,7 +28,10 @@ public class Main {
     //  method is printAllBookings(), tested in test02
     //task12: Připrav metodu pro výpis prvních 8 rezervací, které jsou určeny pro rekreaci
     //  method is printVacationBookings(), tested in test02
-
+    //task13: Připrav v hlavní třídě metodu printGuestStatistics, která vypíše...
+    //  tested in test02
+    //task14: Do třídy Booking přidej metodu getBookingLength
+    //  tested in
 
     public static void main(String[] args) {
         BookingManager myBookings = new BookingManager();
@@ -57,7 +60,7 @@ public class Main {
         //task03: getBookings() method in BookingManager
         //task12
         printVacationBookings(bookings.getBookings(), 8);
-        printGuestStatistics(bookings.getBookings());
+
 
 
 
@@ -67,6 +70,8 @@ public class Main {
         System.out.println("Avg number of guests is "+String.format("%.2f", bookings.getAverageGuests()));
         //task11:
         printAllBookings(bookings);
+        //task13: Guest Statistics
+        printGuestStatistics(bookings.getBookings());
 
         //task04: clearBookings();
         bookings.clearBookings();
@@ -92,6 +97,7 @@ public class Main {
         System.out.println("   1 Guest  : "+oneGuest+" bookings");
         System.out.println("   2 Guests : "+twoGuests+" bookings");
         System.out.println("many Guests : "+manyGuests+" bookings");
+        System.out.println("=== ================ ===");
 
     }
 
