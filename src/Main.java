@@ -34,16 +34,14 @@ public class Main {
     //  tested in test02, used in Booking.getPrice()
     //task15: Přidej do třídy Booking metodu getPrice, která spočítá celkovou cenu objednávky.
     //  used in printBooking, needed for tasks 11 & 12
+    //task16: Do metody main přidej volání všech metod, které jsi v tomto úkolu vytvořil
+    //  prepared method test02 to package the calls
 
     public static void main(String[] args) {
         BookingManager myBookings = new BookingManager();
         //test01();
+        //task16: demonstrate/test that everything works
         test02(myBookings, true);
-
-
-
-        System.out.println("avg guests: "+myBookings.getAverageGuests());
-
 
         System.out.println("End OK.");
     }
