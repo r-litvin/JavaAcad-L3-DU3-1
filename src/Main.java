@@ -17,6 +17,17 @@ public class Main {
     //  tested in test02
     //task06: getAverageGuests in BookingManager
     //  tested in test02
+    //tasks07 - 10: fillBookings method in Main
+    //  tested in fillBookings01
+    //task07: Karel Dvořák, narozen 15. 5. 1990, si rezervuje pokoj číslo 3 od 1. 6. 2023 do 7. 6. 2023. Bude to pracovní pobyt.
+    //task08: Jiný pan Karel Dvořák, narozen 3. 1. 1979, si rezervuje pokoj číslo 2 od 18. 7. 2023 do 21. 7. 2023. Bude to rekreační pobyt.
+    //task09: Fyzioterapeutka Karolína Tmavá si pro své klienty rezervuje pokoj číslo 2 na dvoudenní pobyty v měsíci srpnu. Vytvoř 10 dvoudenních rezervací pro rekreační pobyty:
+    //task10: Fyzioterapeutka Karolína Tmavá z předchozího úkolu si dále rezervuje pokoj číslo 3 na celý srpen (od 1.8. do 31.8.).
+    //  tested in fillBookings01
+    //task11: V hlavní třídě projektu připrav metodu pro výpis seznam všech rezervací ve formátu...
+    //  method is printAllBookings(), tested in test02
+    //task12: Připrav metodu pro výpis prvních 8 rezervací, které jsou určeny pro rekreaci
+    //  method is printVacationBookings(), tested in test02
 
 
     public static void main(String[] args) {
@@ -37,13 +48,14 @@ public class Main {
         fillBookings01(bookings);
         if(verbose) System.out.println("Test BookingManager class filled successfully.");
         if(verbose) System.out.println("Total number of bookings is "+bookings.getNumberOfBookings());
+        //task02: gedBooking(index) in BookingManager
         if(bookings.getNumberOfBookings()>2){
             Booking dummyBooking = bookings.getBooking(2);
             if (verbose) System.out.println("getBooking(2) => "+dummyBooking);
         }
 
-        printAllBookings(bookings);
         //task03: getBookings() method in BookingManager
+        //task12
         printVacationBookings(bookings.getBookings(), 8);
         printGuestStatistics(bookings.getBookings());
 
@@ -53,6 +65,8 @@ public class Main {
         System.out.println("Number of business trip bookings is "+bookings.getNumberOfWorkingBookings());
         //task06: getAverageGuests in BookingManager
         System.out.println("Avg number of guests is "+String.format("%.2f", bookings.getAverageGuests()));
+        //task11:
+        printAllBookings(bookings);
 
         //task04: clearBookings();
         bookings.clearBookings();
@@ -117,46 +131,47 @@ public class Main {
     }
 
     private static void fillBookings01(BookingManager bookings) {
+        //task07: guest1
         Guest guest1 = new Guest ("Karel", "Dvořák",
                 LocalDate.of(1990, 5,5));
+        //task08: guest2
         Guest guest2 = new Guest ("Karel", "Dvořák",
                 LocalDate.of(1979, 1,3));
+
         Guest guest22 = new Guest("Karla", "Dvořáková",
                 LocalDate.of(1981, 9, 11));
+        //task09 & task10: guest3
         Guest guest3 = new Guest ("Karolína", "Tmavá",
                 LocalDate.of(1989, 11,17));
-
+        //task08 & task09: room2
         Room room2 = new Room(2, 1,
                 false, true,
                 BigDecimal.valueOf(1950));
-
+        //task07: room3
         Room room3 = new Room(3, 2,
                 true, false,
                 BigDecimal.valueOf(1750));
 
+        //task07: new booking
         bookings.addBooking(room3, guestList(guest1),
                 LocalDate.of(2023, 6, 1),
                 LocalDate.of(2023, 6, 7),
                 VacationType.BUSINESS);
-
+        //task08: new booking
         bookings.addBooking(room2, guestList(guest2, guest22),
                 LocalDate.of(2023, 7, 18),
                 LocalDate.of(2023, 7, 21),
                 VacationType.LEISURE);
 
-        //let's test adding a Booking instance
+        //task01: addBooking
+        //task10
         Booking booking3 = new Booking(room3, guestList(guest3),
                 LocalDate.of(2023, 8, 1),
                 LocalDate.of(2023, 8, 31),
                 VacationType.BUSINESS);
-        // task01: addBooking
         bookings.addBooking(booking3);
-        // alternate version
-//        bookings.addBooking(room3, guestList(guest3),
-//                LocalDate.of(2023, 8, 1),
-//                LocalDate.of(2023, 8, 31),
-//                VacationType.BUSINESS);
 
+        //task09: many consecutive bookings
         int day0 = 1;
         for (int i=0; i<10; i++){
             bookings.addBooking(room2, guestList(guest3),
