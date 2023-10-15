@@ -12,15 +12,15 @@ public class Room {
      */
     private int number;
     private int beds;
-    private boolean Balcony;
-    private boolean View;
+    private boolean balcony;
+    private boolean view;
     private BigDecimal pricePerNight;
 
     public Room(int number, int beds, boolean hasBalcony, boolean hasView, BigDecimal pricePerNight){
         this.number = number;
         this.beds = beds;
-        this.Balcony = hasBalcony;
-        this.View = hasView;
+        this.balcony = hasBalcony;
+        this.view = hasView;
         this.pricePerNight = pricePerNight;
     }
 
@@ -42,19 +42,19 @@ public class Room {
     }
 
     public boolean isBalcony() {
-        return Balcony;
+        return balcony;
     }
 
     public void setBalcony(boolean balcony) {
-        this.Balcony = balcony;
+        this.balcony = balcony;
     }
 
     public boolean isView() {
-        return View;
+        return view;
     }
 
     public void setView(boolean view) {
-        this.View = view;
+        this.view = view;
     }
 
     public BigDecimal getPricePerNight() {
