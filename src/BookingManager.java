@@ -58,7 +58,7 @@ public class BookingManager {
     public double getAverageGuests(){
         double sumGuests=0.0;
         for (Booking booking : this.listOfBookings){
-            sumGuests += (double) booking.getNumberOfGuests();
+            sumGuests += booking.getNumberOfGuests();
         }
         return sumGuests/this.getNumberOfBookings();
     }
