@@ -65,7 +65,10 @@ public class Main {
         //task06: getAverageGuests in BookingManager
         System.out.println("Avg number of guests is "+String.format("%.2f", bookings.getAverageGuests()));
         //task11:
+        if (verbose) System.out.println("All bookings, for loop:");
         printAllBookings(bookings);
+        if (verbose) System.out.println("All bookings, using Stream: ");
+        printAllBookingsUsingStream(bookings);
         //task13: Guest Statistics
         printGuestStatistics(bookings.getBookings());
         //task14: getBookingLength method in Booking
@@ -85,6 +88,10 @@ public class Main {
         }
     }
 
+    private static void printAllBookingsUsingStream(BookingManager myBookings){
+        System.out.println("List of All Bookings:");
+        myBookings.getBookings().stream().forEach(bking -> printBooking(bking));
+    }
     private static void printGuestStatistics(List<Booking> bookings){
         int oneGuest=0, twoGuests=0, manyGuests=0; //could use an array in principle?
         for (Booking booking : bookings){
@@ -92,7 +99,7 @@ public class Main {
             else if (booking.getGuests().size() == 2) {twoGuests += 1;}
             else {manyGuests += 1;}
         }
-        System.out.println("=== Guest Statistics ===");
+        System.out.println("\n=== Guest Statistics ===");
         System.out.println("   1 Guest  : "+oneGuest+" bookings");
         System.out.println("   2 Guests : "+twoGuests+" bookings");
         System.out.println("many Guests : "+manyGuests+" bookings");
