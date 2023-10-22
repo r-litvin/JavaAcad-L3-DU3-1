@@ -57,10 +57,15 @@ public class BookingManager {
 
     public double getAverageGuests(){
         double sumGuests=0.0;
-        for (Booking booking : this.listOfBookings){
-            sumGuests += booking.getNumberOfGuests();
-        }
-        return sumGuests/this.getNumberOfBookings();
+        //based on Martin's review 2023-10-17
+        //fix potential division by zero error
+        if (this.getNumberOfBookings()>0){
+            for (Booking booking : this.listOfBookings) {
+                sumGuests += booking.getNumberOfGuests();
+            }
+            return sumGuests/this.getNumberOfBookings();
+        } else { return 0;}
+
     }
 
 
